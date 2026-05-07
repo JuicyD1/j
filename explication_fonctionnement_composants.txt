@@ -1,0 +1,78 @@
+Fonctionnement de chaque composant - Projet de golf
+
+Document préparé à partir des schémas fournis.
+
+1. Alimentation et protections
+
+- 120 V AC : Alimentation principale du panneau. Elle sert à alimenter certains équipements et l'alimentation 24 V DC.
+- POWER 24 V DC : Bloc d'alimentation qui transforme le 120 V AC en 24 V DC pour le PLC, les capteurs, les relais et les pistons.
+- 24 V DC 1 A / 2 A : Deux circuits 24 V séparés. Le 1 A semble alimenter une partie des sorties, et le 2 A une autre partie du système.
+- N de 24 V DC : Commun ou 0 V du circuit 24 V DC.
+- N de 120 V : Neutre du circuit 120 V AC.
+- GND : Mise à la terre de protection. Elle sert à sécuriser l'installation.
+- DIS. 3A : Disjoncteur ou interrupteur de protection 3 A. Il protège le circuit contre les surintensités.
+- FU1A / FU2A : Fusibles de protection. Ils protègent les branches 24 V contre les courts-circuits ou les surcharges.
+- TB1 à TB6 : Borniers de raccordement. Ils permettent de connecter proprement les fils entre l'alimentation, le PLC, les relais, les capteurs et les actionneurs.
+
+2. Automate programmable
+
+- SIMATIC S7-1500 : Automate programmable Siemens. C'est le cerveau du système. Il lit les capteurs et boutons, puis commande les sorties selon le programme.
+- Carte 1 PLC IN : Carte d'entrées du PLC. Elle reçoit les signaux des capteurs et boutons.
+- Carte 1 PLC OUT : Carte de sorties du PLC. Elle commande des relais, le sens du convoyeur, les modes automatiques et une lumière témoin.
+- Carte 2 PLC OUT : Carte de sorties dédiée aux pistons : piston palet, piston balle et piston rejet.
+
+3. Entrées du PLC : capteurs et boutons
+
+- Capteur dans le réservoir de palet : Détecte s'il y a un palet disponible dans le réservoir.
+- Capteur de position barre métallique gauche : Indique que la barre métallique est en position gauche.
+- Capteur de position barre métallique milieu : Indique que la barre est en position centrale.
+- Capteur de position barre métallique droite : Indique que la barre est en position droite.
+- Capteur détection bleu : Sert probablement à détecter une balle ou un objet bleu. Il peut être utilisé pour décider si l'objet doit continuer ou être rejeté.
+- Capteur à la fin de convoyeur : Détecte qu'un objet est arrivé à la fin du convoyeur.
+- Capteur palet non activé : Indique que le palet n'est pas en position active.
+- Capteur palet activé : Indique que le palet est bien en position active.
+- Bouton Auto2 : Bouton d'activation du mode automatique 2.
+- Bouton Auto3 : Bouton d'activation du mode automatique 3.
+
+4. Sorties du PLC : actionneurs et commandes
+
+- Marche Avant : Commande le déplacement du convoyeur vers l'avant.
+- Marche Arrière : Commande le déplacement du convoyeur vers l'arrière.
+- Marche Auto2 : Active le relais ou la logique associée au mode automatique 2.
+- Marche Auto3 : Active le relais ou la logique associée au mode automatique 3.
+- Lumière témoignage : Voyant lumineux qui indique un état du système : marche, mode actif, défaut ou présence tension selon le câblage.
+- Piston palet : Actionneur pneumatique qui pousse ou place un palet.
+- Piston balle : Actionneur pneumatique qui pousse ou libère une balle.
+- Piston rejet : Actionneur pneumatique qui rejette une balle ou un objet non conforme.
+
+5. Relais et contacts
+
+- Relais AV : Relais de marche avant. Il commande le sens avant du moteur ou du convoyeur.
+- Relais AR : Relais de marche arrière. Il commande le sens arrière du moteur ou du convoyeur.
+- Relais AUTO2 : Relais associé au mode automatique 2.
+- Relais AUTO3 : Relais associé au mode automatique 3.
+- Relais P1 / P3 : Relais liés aux pistons ou à certaines séquences pneumatiques. Ils servent d'intermédiaires entre le PLC et les charges.
+- Contact urgence : Contact d'arrêt d'urgence. Lorsqu'il est ouvert, il coupe ou bloque la commande pour sécuriser la machine.
+- Contact ADS : Contact de sélection automatique/non automatique. Dans le schéma moteur, il est indiqué : ADS activé = auto, ADS non activé = non auto.
+- Contact de manuelle convoyeur : Permet de commander le convoyeur en mode manuel.
+- Contact de manuelle pistons : Permet de commander les pistons en mode manuel.
+- Contact de marche Avant AV : Contact lié à la commande de marche avant.
+- Contact de marche Arrière AR : Contact lié à la commande de marche arrière.
+- Relais thermique NC : Protection moteur normalement fermée. Si le moteur surcharge, le contact s'ouvre et arrête la commande.
+
+6. Moteur et variateur
+
+- SINAMICS / SINAMIC : Variateur Siemens qui pilote le moteur du convoyeur. Il peut gérer la marche, l'arrêt, le sens et possiblement la vitesse.
+- Moteur de convoyeur : Déplace les balles, palets ou objets sur le convoyeur.
+- ADS activé = auto : Lorsque ce contact est activé, le système fonctionne en mode automatique.
+- ADS non activé = non auto : Lorsque ce contact n'est pas activé, le système est en mode manuel ou non automatique.
+
+7. Fonctionnement global du système
+
+1. Le panneau reçoit du 120 V AC.
+2. L'alimentation POWER 24 V DC fournit le 24 V pour le contrôle.
+3. Les capteurs et boutons envoient leurs états aux entrées du PLC.
+4. Le SIMATIC S7-1500 traite ces informations.
+5. Le PLC active ses sorties : relais AV/AR pour le convoyeur, relais AUTO2/AUTO3 pour les modes automatiques, pistons palet/balle/rejet et lumière témoin.
+6. Le SINAMICS commande le moteur du convoyeur.
+7. Les protections comme le contact urgence, les fusibles, le disjoncteur et le relais thermique arrêtent ou protègent le système en cas de problème.
