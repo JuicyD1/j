@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Experience biblique immersive en style ancien parchemin avec animations 3D, lumieres dorees et parcours interactif."
+    />
+    <title>Scriptura - Voyage biblique immersif</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="aurora" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#accueil" aria-label="Scriptura, retour a l'accueil">
+        <span class="brand-mark">S</span>
+        <span>Scriptura</span>
+      </a>
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="#parcours">Parcours</a>
+        <a href="#livres">Livres</a>
+        <a href="#timeline">Timeline</a>
+        <a href="#explorer">Explorer</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="accueil" class="hero section-shell">
+        <div class="hero-copy">
+          <p class="eyebrow">Ancien parchemin + scene 3D</p>
+          <h1>Entrez dans la Bible comme dans un manuscrit vivant.</h1>
+          <p class="hero-lead">
+            Une experience visuelle inspiree des bibliotheques antiques, des encres dorees
+            et de la profondeur 3D pour explorer les textes, les personnages et les grands
+            moments bibliques.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#parcours">Commencer le voyage</a>
+            <a class="button ghost" href="#livres">Voir les livres</a>
+          </div>
+        </div>
+
+        <div class="hero-stage" aria-label="Scene 3D de parchemin biblique">
+          <canvas id="scripture-canvas"></canvas>
+          <div class="scroll-card floating-card">
+            <span class="chapter">Jean 1:1</span>
+            <strong>Au commencement etait la Parole</strong>
+          </div>
+          <div class="seal floating-card" aria-hidden="true">✦</div>
+        </div>
+      </section>
+
+      <section id="parcours" class="section-shell reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Parcours guide</p>
+          <h2>Une lecture qui se deploie comme un rouleau ancien.</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="icon">01</span>
+            <h3>La creation</h3>
+            <p>
+              Une entree lumineuse dans la Genese, avec des particules qui evoquent la
+              naissance du monde et la separation de la lumiere.
+            </p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">02</span>
+            <h3>Les alliances</h3>
+            <p>
+              Un fil dore relie Noe, Abraham, Moise et David pour montrer la progression
+              du recit biblique.
+            </p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">03</span>
+            <h3>Les evangiles</h3>
+            <p>
+              Des cartes animees presentent les moments essentiels de la vie de Jesus,
+              avec un rythme calme et contemplatif.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="livres" class="section-shell codex-section reveal">
+        <div class="codex-copy">
+          <p class="eyebrow">Bibliotheque sacree</p>
+          <h2>66 livres, presentes comme des tablettes de sagesse.</h2>
+          <p>
+            Le site peut devenir une bibliotheque interactive: chaque livre s'ouvre avec
+            une animation de page, un resume, des themes majeurs et des versets cles.
+          </p>
+        </div>
+        <div class="book-stack" aria-label="Apercu des sections bibliques">
+          <button class="book active" type="button">
+            <span>Pentateuque</span>
+            <small>Origines, loi, alliance</small>
+          </button>
+          <button class="book" type="button">
+            <span>Prophetes</span>
+            <small>Justice, esperance, retour</small>
+          </button>
+          <button class="book" type="button">
+            <span>Evangiles</span>
+            <small>Vie, paroles et miracles</small>
+          </button>
+          <button class="book" type="button">
+            <span>Epitres</span>
+            <small>Eglise, foi, perseverance</small>
+          </button>
+        </div>
+      </section>
+
+      <section id="timeline" class="section-shell reveal">
+        <div class="section-heading centered">
+          <p class="eyebrow">Fresque biblique</p>
+          <h2>Une timeline fluide, gravee dans le parchemin.</h2>
+        </div>
+        <div class="timeline">
+          <article>
+            <span>Creation</span>
+            <h3>Genese</h3>
+            <p>Le monde prend forme, l'humain recoit une vocation et l'histoire commence.</p>
+          </article>
+          <article>
+            <span>Exode</span>
+            <h3>Moise</h3>
+            <p>Liberation, desert, loi et tabernacle construisent l'identite d'un peuple.</p>
+          </article>
+          <article>
+            <span>Royaume</span>
+            <h3>David</h3>
+            <p>Un trone, des psaumes et une promesse messianique traversent les siecles.</p>
+          </article>
+          <article>
+            <span>Accomplissement</span>
+            <h3>Christ</h3>
+            <p>Les evangiles recentrent le recit sur la grace, le royaume et la resurrection.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="explorer" class="section-shell final-panel reveal">
+        <p class="eyebrow">Prototype visuel</p>
+        <h2>Un site contemplatif, premium et pret a evoluer.</h2>
+        <p>
+          Cette base peut ensuite recevoir des pages detaillees, une recherche de versets,
+          un lecteur audio, des cartes bibliques et des animations encore plus cinematographiques.
+        </p>
+        <a class="button primary" href="#accueil">Revenir au manuscrit</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Scriptura</span>
+      <span>Experience biblique immersive</span>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
